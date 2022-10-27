@@ -19,7 +19,7 @@ const Posts = ({posts, token}) => {
                 <NewPost token={token}/>
                 {posts.map((eachPost, index) => {
                     return (
-                        <div className="outer-post">
+                        <div className="outer-post" key={eachPost._id}>
                         <PostItem key={index} eachPost={eachPost} token={token}/>
                         </div>
                     )
