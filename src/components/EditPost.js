@@ -6,30 +6,15 @@ const EditPost = ({token, setPosts, posts}) => {
 
     console.log(posts);
 
-    const [editingItem, setEditingItem] = useState('');
+    // const [editingItem, setEditingItem] = useState('');
 
     const postSwitch = useParams();
 
     const postId = postSwitch.editSwitch;
     console.log('post id from url', postId)
 
-    const oneThing = posts.find((post) => post._id == postId)
+    const editingPost = posts.find((post) => post._id == postId)
 
-    console.log('one thing here', oneThing)
-
-
-
-    // console.log(typeof(posts.forEach(posts._id)))
-
-
-    // setEditingItem(posts.find((post) => post._id == postId))
-    // console.log(postFromURL)
-
-    // console.log('post from url', postFromURL)
-
-    // const result = words.filter(word => word.length > 6);
-
-    // console.log(editingItem)
 
     // call for the original postId in API to fill fields with old information
         // populate the page with the postId location, title, cost, et cetera
@@ -40,9 +25,24 @@ const EditPost = ({token, setPosts, posts}) => {
     // useHistory to push them back to the users/me page
 
     return (
-        <>
-        {oneThing.location}
-        </>
+        <div className="details-page-container">
+            <h3 className="details-header">{editingPost.title}</h3>
+            <h6 className="details-location">{editingPost.location}</h6>
+            <p className="details-description">{editingPost.description}</p>
+            <p className="details-price">{editingPost.price}</p>
+            {/* <p className="details-delivery">Delivery: {editingPost.willDeliver}</p> */}
+            {!editingPost.messages ? 
+            <p>No messages for this post.</p>
+            : editingPost.messages.map((eachMessage) => {
+                console.log('this post has a message')
+                return (
+                    <>
+                    <p><span className="message-user">From user: </span>{eachMessage.fromUser}</p> 
+                    <p><span className="message-content">Message: </span>{eachMessage.content}</p> 
+                    </>
+                )
+            })}
+        </div>
     )
 }
 

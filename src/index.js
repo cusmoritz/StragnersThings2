@@ -14,7 +14,7 @@ const App = () => {
     const [posts, setPosts] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [token, setToken] = useState(window.localStorage.getItem("token"||""));
-    // const history = useNavigate()
+    // const history = useNavigate();
 
     // this useEffect calls for all our API posts
     useEffect(() => {

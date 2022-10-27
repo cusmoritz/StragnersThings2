@@ -41,8 +41,8 @@ const PostItem = ({eachPost, index, token}) => {
                 <p>{eachPost.price}</p>
                 <p>{eachPost.description}</p>
                 <p>{eachPost.location}</p>
-
-                    {createMessageState === false ? 
+                    {token ? (
+                    createMessageState === false ? 
                         (
                             <button onClick={() => {setCreateMessageState(true), console.log(eachPost)} }>
                                 Send message
@@ -50,12 +50,12 @@ const PostItem = ({eachPost, index, token}) => {
                         ) : (
                             <form onSubmit={(event) => {event.preventDefault()}}>
                                 <label htmlFor="user-message">
-                                    <input 
+                                    <input  
                                         className="user-message" 
                                         placeholder="Type your message here" 
                                         value={userMessage} 
                                         onChange={(event) => {setUserMessage(event.target.value)}} />
-                                    <button type="" onClick={() => {
+                                    <button type="button" onClick={() => {
                                         sendPosterMessage(eachPost._id, userMessage, token), 
                                         alert(`"${userMessage}" sent to ${eachPost.author.username}`),
                                         setCreateMessageState(false)
@@ -64,7 +64,7 @@ const PostItem = ({eachPost, index, token}) => {
                                     </button>
                                 </label>
                             </form>
-                        ) }
+                        )) : null }
         </div>
     )
 }
