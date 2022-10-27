@@ -1,21 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import Posts from './Posts';
+import { getGuestData } from '../api';
+import UserPosts from './UserPosts';
+import PostItem from "./PostItem";
 
-const Header = ({setSeePosts}) => {
+const Home = ({posts, token}) => {
+
+    const [postArray, setPostArray] = useState([])
+
+    const getMyPosts = async () => {
+        const results = await getGuestData(token)
+        console.log('results', results)
+        let activeResults = results.data.posts.filter((eachResult) => eachResult.active === true)
+        // console.log('active results', activeResults)
+        setPostArray(activeResults);
+        
+        // console.log('using the GET function', results);
+        // console.log('actually?', postArray)
+        return activeResults
+    }
+
+    // const justPosts = postArray.data.posts;
+    // console.log(justPosts)
+
+    // console.log('actually?', postArray)
+
+
+    useEffect(() => {
+        try {
+          getMyPosts();
+        } catch (error) {
+          alert("error fetching posts", error)
+          console.log("error fetching posts", error)
+        }
+      }, []);
 
     return (
         <>
-            <h1>Stranger's Things</h1>
-            <button onClick={() => {
-                setSeePosts(true)
-                
-                // console.log('clicking')
-            }}>
-                See Posts</button>
+            {postArray.map((eachPost, index) => {
+                return (
+                    <div className='user-post-container' key={index}>
+                        <UserPosts token={token} eachPost={eachPost} setPostArray={setPostArray}/>
+                    </div>
+                )
+            })}
         </>
-
     )
 }
 
-export default Header
+export default Home

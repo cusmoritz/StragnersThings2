@@ -1,30 +1,31 @@
 import React from "react";
+import PostItem from "./PostItem";
+import { Link } from "react-router-dom";
 
-const Posts = ({seePosts, posts}) => {
+const Posts = ({posts, token}) => {
 
-    return (
-        <>
-        {(seePosts)
-            ? ( 
-                <div>
-                      {posts.map((eachPost, index) => {
-                          return (
-                              <>
-                                <h4 key={eachPost._id}>{eachPost.title}</h4>
-                                    <p>{eachPost.price}</p>
-                                    <p>{eachPost.description}</p>
-                                    <p>{eachPost.location}</p>
-                              </>
-                          )
-                      })}
-                  
+    const NewPost = ({token}) => {
+        {if (token) {
+            return (
+                <div className="create-post-button">
+                    <Link to="/posts/new" token={token}>Create new post</Link>
                 </div>
             )
-            : null}
-        </>
-            
-    )
-        
+        }}
+    }
+
+    return (
+            <div>
+                <NewPost token={token}/>
+                {posts.map((eachPost, index) => {
+                    return (
+                        <div className="outer-post">
+                        <PostItem key={index} eachPost={eachPost} token={token}/>
+                        </div>
+                    )
+                })}
+            </div>
+    )   
 }
 
 export default Posts
