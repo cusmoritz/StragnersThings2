@@ -8,7 +8,7 @@ const Posts = ({posts, token}) => {
         {if (token) {
             return (
                 <div className="create-post-button">
-                    <Link to="/posts/new" token={token}>Create new post</Link>
+                    <button><Link to="/posts/new" token={token}>Create new post</Link></button>
                 </div>
             )
         }}

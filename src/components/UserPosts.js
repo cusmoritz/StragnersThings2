@@ -39,8 +39,6 @@ const UserPosts = ({eachPost, token, setPostArray, postArray}) => {
             <p className="user-post-price">{eachPost.price}</p>
             <p className="user-post-description">{eachPost.description}</p>
 
-            <p>Messages from {eachPost.title} go here</p>
-
             <button 
                 className="user-delete-button" 
                 onClick={() => {

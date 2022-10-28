@@ -30,7 +30,7 @@ const App = () => {
     // this useEffect sets the items state every time our token value changes
     useEffect(() => {
       window.localStorage.setItem("token", token) // key value pair
-      console.log('token', token)
+      console.log('token in index useEffect', token)
     }, [token]);
     
   return (
@@ -39,9 +39,9 @@ const App = () => {
     
     <h1>Stranger's Things</h1>
       <nav>
-        {token ? <Link to="/">Home</Link> : null}
+        {token ? <button><Link to="/">Home</Link></button> : null}
       
-      <Link to="/posts">Posts</Link> 
+      <button><Link to="/posts">See all posts</Link> </button>
       <div className='login-links'>
 
       {/* this ternary handles our logout function */}
@@ -105,3 +105,9 @@ root.render(<App />);
   {urlpath === '/posts' ? <div>On /posts page</div> : null} <-- Route
   {urlpath === '/profile' ? <div>On /profile page</div> : null}
 <main></main> */}
+
+
+
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzU0MjY5YWUzMzFhZTAwMTc4ZTdiYzkiLCJ1c2VybmFtZSI6Imphcm9uIiwiaWF0IjoxNjY2OTkyOTg1fQ.cHdwqY4bGopyf5P-IK9I7Q21z5mla2mCmWpA4lilQJk
+
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzUxZjkzNzhhMWEwZjAwMTdhOGJiNGIiLCJ1c2VybmFtZSI6Im1hcmN1cyIsImlhdCI6MTY2Njk5MzE2OH0.8960vhw4QqRPa2rjVv5wu5nbxLr9Rmb2yGmg9jfsnHU

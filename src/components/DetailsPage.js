@@ -18,14 +18,15 @@ const DetailsPage = ({token, setPosts, posts}) => {
             <p className="details-description">{detailsPost.description}</p>
             <p className="details-price">{detailsPost.price}</p>
             {/* <p className="details-delivery">Delivery: {detailsPost.willDeliver}</p> */}
-            {!detailsPost.messages ? 
-            <p>No messages for this post.</p>
+            {!detailsPost.messages[0] ? 
+            <p>No messages about this post.</p>
             : detailsPost.messages.map((eachMessage) => {
                 console.log('this post has a message')
                 return (
                     <>
-                    <p><span className="message-user">From user: </span>{eachMessage.fromUser}</p> 
+                    <h5>Message:</h5>
                     <p><span className="message-content">Message: </span>{eachMessage.content}</p> 
+                    <p><span className="message-user">From user: </span>{eachMessage.fromUser.username}</p> 
                     </>
                 )
             })}
