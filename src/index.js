@@ -19,7 +19,7 @@ const App = () => {
     // this useEffect calls for all our API posts
     useEffect(() => {
       try {
-        getAPIPosts().then(result => setPosts(result))
+        getAPIPosts(token).then(result => setPosts(result))
       } catch (error) {
         alert("error fetching posts", error)
         console.log("error fetching posts", error)

@@ -11,21 +11,17 @@ const Home = ({posts, token}) => {
 
     const getMyPosts = async () => {
         const results = await getGuestData(token)
-        console.log('results', results)
+        console.log('results in Header.js', results)
         let activeResults = results.data.posts.filter((eachResult) => eachResult.active === true)
         // console.log('active results', activeResults)
         setPostArray(activeResults);
         
         // console.log('using the GET function', results);
         // console.log('actually?', postArray)
-        return activeResults
+        return postArray
     }
 
-    // const justPosts = postArray.data.posts;
-    // console.log(justPosts)
-
-    // console.log('actually?', postArray)
-
+    console.log('this is the state in header.js', postArray)
 
     useEffect(() => {
         try {
@@ -39,6 +35,7 @@ const Home = ({posts, token}) => {
     return (
         <>
             {postArray.map((eachPost, index) => {
+                console.log(eachPost)
                 return (
                     <div className='user-post-container' key={index}>
                         <UserPosts token={token} eachPost={eachPost} setPostArray={setPostArray}/>
