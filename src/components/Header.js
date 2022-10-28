@@ -32,18 +32,21 @@ const Home = ({posts, token}) => {
         }
       }, []);
 
-    return (
-        <>
-            {postArray.map((eachPost, index) => {
-                console.log(eachPost)
-                return (
-                    <div className='user-post-container' key={index}>
-                        <UserPosts token={token} eachPost={eachPost} setPostArray={setPostArray}/>
-                    </div>
-                )
-            })}
-        </>
-    )
+    if (!postArray) {
+        <h3>You haven't made any posts yet!</h3>
+    } else {
+        return (
+            <>
+                {postArray.map((eachPost, index) => {
+                    console.log(eachPost)
+                    return (
+                        <div className='user-post-container' key={index}>
+                            <UserPosts token={token} eachPost={eachPost} setPostArray={setPostArray}/>
+                        </div>
+                    )
+                })}
+            </>
+    )}
 }
 
 export default Home

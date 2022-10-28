@@ -18,37 +18,65 @@ const Login = ({setToken}) => {
     const handleOnSubmit = async(event) => {
         event.preventDefault();
 
-        try {
-            if (newUser) {
-                let newUserToken = await createNewUser(newUserId, newUserPass)
-                setToken(newUserToken)  
-                history("/posts")       
+        if (newUser === true) {
+            if (newUserPass == confirmPass) {
+                try {
+                    let newUserToken = await createNewUser(newUserId, newUserPass)
+                    setToken(newUserToken)  
+                    history("/posts")
+                } catch (error) {
+                    alert('Sorry! Something went wrong creating a new user. Error:', error)
+                }
             } else {
+                alert('Hold up! To sign up, your password must be confirmed. Please try again.')
+                setNewUserPass("")
+                setConfirmPass("")
+            }
+        } else {
+            try{
                 let response = await getLoginUser(newUserId, newUserPass)
-                console.group('this is the response', response)
+                console.log('this is the response', response)
                 setToken(response)
                 history("/posts")
+            } catch (error) {
+                console.log('there was an error trying to log in: ', error)
             }
-
-        } catch (error) {
-            alert('there was an error logging in', error)
-            console.error(error)
         }
+    }
+
+    let ConfirmPassword = () => {
+        return (
+            <>
+            <label htmlFor='confirm-password'>Confirm password:</label>
+                <span id='confirm-password'>
+                    <input type="password" 
+                        value={confirmPass}
+                        // id='confirm'
+                        minLength="8"
+                        required
+                        onChange={(event) => {
+                            console.log(event.target.value)
+                            setConfirmPass(event.target.value) 
+                            // console.log('typing password', confirmPass)
+                        }} />
+                </span>
+            </>
+        )
     }
 
     return (
         <>
         <h4>{pageTitle}</h4>
-            <div className='not-logged-in-splash' onSubmit={handleOnSubmit}>
+            <div className='not-logged-in-container' onSubmit={handleOnSubmit}>
 
                 {/* check if we need to create a new user ---> */}
-                <p id='new-sign-up-option'>New User? 
+                <p id='new-user-option'>New User? 
                     <span>
                         <input type="checkbox" 
                             id='create-new-user'
                             onChange={(event) => {
-                                setNewUser(true)
-                                console.log(newUser)
+                                console.log('newUser was: ', newUser)
+                                setNewUser(!newUser)
                             }} />
                     </span>
                 </p>
@@ -80,29 +108,31 @@ const Login = ({setToken}) => {
                     />
                     </span>
 
-                    {/* if (newUser === true) {
+                    {newUser === true ? (
                         <>
-                            <label htmlFor='confirm-input'>Confirm password:</label>
-                            <span id='confirm-input'>
+                        <label htmlFor='confirm-password'>Confirm password:
+                        <span id='confirm-password'>
                             <input type="password" 
-                            value={confirmPass}
-                            id='confirm'
-                            minLength="8"
-                            onChange={(event) => {
-                                (console.log('typing password', event.target.value))
-                                setConfirmPass(event.target.value)
-                            }}
-                            />
-                            </span>
+                                value={confirmPass}
+                                // id='confirm'
+                                minLength="8"
+                                required
+                                onChange={(event) => {
+                                    console.log(event.target.value)
+                                    setConfirmPass(event.target.value) 
+                                    // console.log('typing password', confirmPass)
+                                }} />
+                        </span>
+                        </label>
                         </>
-                    } */}
+                    )  
+                    : null }
                     
 
                 {/* if we aren't creating a new user, we call the API with a dif. function --> */}
 
                     <label htmlFor='submit-login'>
-                        <button 
-                            type="submit">
+                        <button type="submit">
                             {pageTitle}
                         </button>
                         
