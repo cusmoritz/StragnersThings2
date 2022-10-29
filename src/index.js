@@ -8,6 +8,7 @@ import Login from './components/Login'
 import NewPostForm from './components/NewPost';
 import EditPost from './components/EditPost';
 import DetailsPage from './components/DetailsPage';
+import SearchBar from './components/SearchBar';
 
 const App = () => {
 
@@ -26,6 +27,12 @@ const App = () => {
       }
     }, []);
 
+    // this is our logout button
+    const LogOut = ({setToken}) => {
+      return (
+        <button onClick={() => {setToken("")} } className='logout'>Log out</button> 
+      )
+    }
 
     // this useEffect sets the items state every time our token value changes
     useEffect(() => {
@@ -46,7 +53,7 @@ const App = () => {
 
       {/* this ternary handles our logout function */}
         {token    
-        ? <button onClick={() => {setToken("")}} className='logout'>Log out</button> 
+        ? <LogOut setToken={setToken} />
         :      
         <>
           <Link to="account/sign-up">Sign Up / Log in</Link>
@@ -54,7 +61,9 @@ const App = () => {
       </div>
 
       </nav>
-
+      <div className='search-bar-container'>
+        <SearchBar posts={posts} />
+      </div>
       <Routes>
 
         <Route exact path="/" element={<Home posts={posts} token={token}/>} />
