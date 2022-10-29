@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const SearchBar = ({posts}) => {
@@ -43,12 +44,12 @@ const SearchBar = ({posts}) => {
         {!search ? (
             null
         ) : (
-            posts.map((eachPost) => {
+            <div className="search-container">
+            {posts.map((eachPost) => {
                 if(eachPost.title.toLowerCase().includes(search)) {
                     return (
-                        <div className="search-result">
-                            <p><b>Matches title in:</b> {eachPost.title}</p>
-                        </div>
+                            <p><b>Matches title in:</b><Link to={`/posts/details/${eachPost._id}`}>{eachPost.title}</Link>
+                            </p>
                     )
     
                 } if (eachPost.location.toLowerCase().includes(search)) {
@@ -68,7 +69,8 @@ const SearchBar = ({posts}) => {
                 //     )
                 // }
             }
-            ))}       
+            )}
+            </div>)}       
         </div>
     )
 }

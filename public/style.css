@@ -15,10 +15,14 @@ nav {
 
 .search-result {
     z-index: 1;
-
-    position: relative;
     width: 50vw;
     border: 1px solid silver;
+}
+
+.search-container {
+    position: absolute;
+    box-shadow: 3px 3px 3px #00000088;
+    background-color: #59ff43;
 }
 
 .search-result p {
@@ -30,7 +34,7 @@ nav {
     padding: 2%;
     margin: 1%;
     border-radius: 15px;
-    box-shadow: 3px 3px 3px;
+    box-shadow: 3px 3px #00000088;
 }
 
 .post-title {
