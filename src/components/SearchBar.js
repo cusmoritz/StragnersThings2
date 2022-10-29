@@ -38,26 +38,29 @@ const SearchBar = ({posts}) => {
                     setSearch(event.target.value)
                 })}
             />
-            <PostSearch search={search} posts={posts}/>
-            {posts.map((eachPost) => {
-            if(eachPost.title.includes(search)) {
-                return (
-                    <p><b>Matches title in:</b> {eachPost.title}</p>
-                )
+            {/* <PostSearch search={search} posts={posts}/> */}
 
-            } if (eachPost.location.includes(search)) {
-                console.log('location matches', eachPost.location)
-                return (
-                    <p><b>Matches location in:</b> {eachPost.location}</p>
-                )
-            } if (eachPost.location.includes(search)) {
-                console.log('location matches', eachPost.description)
-                return (
-                    <p><b>Matches description in:</b> {eachPost.description}</p>
-                )
-            }
+                {!search ? (
+                    null
+                ) : (
+                    posts.map((eachPost) => {
+                        if(eachPost.title.includes(search)) {
+                            return (
+                                <p><b>Matches title in:</b> {eachPost.title}</p>
+                            )
             
-        })}
+                        } if (eachPost.location.includes(search)) {
+                            console.log('location matches', eachPost.location)
+                            return (
+                                <p><b>Matches location in:</b> {eachPost.location}</p>
+                            )
+                        } if (eachPost.description.includes(search)) {
+                            console.log('description matches', eachPost.description)
+                            return (
+                                <p><b>Matches description in:</b> {eachPost.description}</p>
+                            )
+                        }}
+                    ))}       
         </div>
     )
 }
