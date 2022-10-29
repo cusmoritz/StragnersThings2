@@ -9,6 +9,7 @@ import NewPostForm from './components/NewPost';
 import EditPost from './components/EditPost';
 import DetailsPage from './components/DetailsPage';
 import SearchBar from './components/SearchBar';
+ 
 
 const App = () => {
 
@@ -91,32 +92,3 @@ const App = () => {
 // this loads the <App /> into the 'app' div
 const root = ReactDOM.createRoot(document.getElementById('app'));
 root.render(<App />);
-
-
-
-// <nav>
-
-//   <a href="/posts">posts</a>
-
-// </nav>
-
-// <main>
-
-//   <div>On /posts page</div>
-
-// </main>
-
-{/* <nav>
-  <a href="/posts">posts</a> <-- Links
-  <a href="/profile">profile</a>
-</nav>
-<main>
-  {urlpath === '/posts' ? <div>On /posts page</div> : null} <-- Route
-  {urlpath === '/profile' ? <div>On /profile page</div> : null}
-<main></main> */}
-
-
-
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzU0MjY5YWUzMzFhZTAwMTc4ZTdiYzkiLCJ1c2VybmFtZSI6Imphcm9uIiwiaWF0IjoxNjY2OTkyOTg1fQ.cHdwqY4bGopyf5P-IK9I7Q21z5mla2mCmWpA4lilQJk
-
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzUxZjkzNzhhMWEwZjAwMTdhOGJiNGIiLCJ1c2VybmFtZSI6Im1hcmN1cyIsImlhdCI6MTY2Njk5MzE2OH0.8960vhw4QqRPa2rjVv5wu5nbxLr9Rmb2yGmg9jfsnHU

@@ -37,10 +37,10 @@ const PostItem = ({eachPost, index, token}) => {
     return (
 
         <div className="post-card">
-            <h4 key={index}>{eachPost.title}</h4>
-                <p>{eachPost.price}</p>
-                <p>{eachPost.description}</p>
-                <p>{eachPost.location}</p>
+            <h4 key={index} className="post-title">{eachPost.title}</h4>
+                <p className=""><span>Price: </span>{eachPost.price}</p>
+                <p><span>Description: </span>{eachPost.description}</p>
+                <p><span>Location: </span>{eachPost.location}</p>
                     {token ? (
                     createMessageState === false ? 
                         (
