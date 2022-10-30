@@ -45,7 +45,7 @@ const PostItem = ({eachPost, index, token}) => {
                     createMessageState === false ? 
                         (
                             <button onClick={() => {setCreateMessageState(true), console.log(eachPost)} }>
-                                Send message
+                                <a>Send message</a>
                             </button>
                         ) : (
                             <form onSubmit={(event) => {event.preventDefault()}}>

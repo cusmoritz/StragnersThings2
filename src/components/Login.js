@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { createNewUser, getLoginUser,  } from '../api';
 import { useParams, useNavigate } from 'react-router-dom';
 
-const Login = ({setToken}) => {
+const Login = ({setToken, setSearch}) => {
 
     const [newUser, setNewUser] = useState(false)
     const [newUserId, setNewUserId] = useState('')
@@ -133,7 +133,7 @@ const Login = ({setToken}) => {
 
                     <label htmlFor='submit-login'>
                         <button type="submit">
-                            {pageTitle}
+                            <a>{pageTitle}</a>
                         </button>
                         
                     </label>

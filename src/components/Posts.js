@@ -8,14 +8,14 @@ const Posts = ({posts, token}) => {
         {if (token) {
             return (
                 <div className="create-post-button">
-                    <button><Link to="/posts/new" token={token}>Create new post</Link></button>
+                    <button><Link to="/posts/new" token={token}><a>Create new post</a></Link></button>
                 </div>
             )
         }}
     }
 
     return (
-            <div>
+            <div className="card-container">
                 <NewPost token={token}/>
                 {posts.map((eachPost, index) => {
                     return (

@@ -2,77 +2,80 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-const SearchBar = ({posts}) => {
+const SearchBar = ({posts, search, setSearch}) => {
 
     // console.log('all posts in search bar', posts)
 
-    const [search, setSearch] = useState('')
-    const [searchResults, setSearchResults] = useState([])
+    // const [search, setSearch] = useState('')
+    // const [searchResults, setSearchResults] = useState([])
 
-    const PostSearch = ({search, posts}) => {
+    // const PostSearch = ({search, posts}) => {
         
-        posts.map((eachPost) => {
-            if(eachPost.title.includes(search)) {
-                return (
-                    <div className="search-result-div" />
-                )
+    //     posts.map((eachPost) => {
+    //         if(eachPost.title.includes(search)) {
+    //             return (
+    //                 <div className="search-result-div" />
+    //             )
 
-            } if (eachPost.location.includes(search)) {
-                console.log('location matches', eachPost.location)
-                return (
-                    <p>{eachPost.location}</p>
-                )
-            }
+    //         } if (eachPost.location.includes(search)) {
+    //             console.log('location matches', eachPost.location)
+    //             return (
+    //                 <p>{eachPost.location}</p>
+    //             )
+    //         }
             
-        })
-    }
+    //     })
+    // }
 
-    const SearchResultsComp = () => {
+    // const SearchResultsComp = () => {
 
-    }
+    // }
 
     return (
-        <div className="" >
+
+        <div className="search-bar" >
             <input type="text"
+                autoFocus
                 placeholder="Search for posts here"
                 onChange={((event) => {
                     setSearch(event.target.value.toLowerCase())
                 })}
             />
-            {/* <PostSearch search={search} posts={posts}/> */}
 
         {!search ? (
             null
         ) : (
+
             <div className="search-container">
-            {posts.map((eachPost) => {
-                if(eachPost.title.toLowerCase().includes(search)) {
-                    return (
-                            <p><b>Matches title in:</b><Link to={`/posts/details/${eachPost._id}`}>{eachPost.title}</Link>
-                            </p>
-                    )
-    
-                } if (eachPost.location.toLowerCase().includes(search)) {
-                    console.log('location matches', eachPost.location)
-                    return (
-                        <p className="search-result"><b>Matches location in:</b> {eachPost.location}</p>
-                    )
-                } if (eachPost.description.toLowerCase().includes(search)) {
-                    console.log('description matches', eachPost.description)
-                    return (
-                        <p className="search-result"><b>Matches description in:</b> {eachPost.description}</p>
-                    )
-                } 
-                // else {
-                //     return (
-                //         <p className="search-result">No posts match this search.</p>
-                //     )
-                // }
-            }
-            )}
-            </div>)}       
-        </div>
-    )
+                {posts.map((eachPost) => {
+                    if(eachPost.title.toLowerCase().includes(search)) {
+                        return (
+                                <p><b>Matches title in:</b>
+                                <Link to={`/posts/details/${eachPost._id}`}>{eachPost.title}</Link>
+                                </p>
+                        )
+        
+                    } if (eachPost.location.toLowerCase().includes(search)) {
+                        console.log('location matches', eachPost.location)
+                        return (
+                            <p className="search-result"><b>Matches location in: </b>
+                            <Link to={`/posts/details/${eachPost._id}`}>{eachPost.location}</Link></p>
+                        )
+                    } if (eachPost.description.toLowerCase().includes(search)) {
+                        console.log('description matches', eachPost.description)
+                        return (
+                            <p className="search-result"> <b>Matches description in: </b> <Link to={`/posts/details/${eachPost._id}`}>{eachPost.description}</Link> </p>
+                        )
+
+                    }
+                }
+                ) //eachPost mapping
+            } 
+            </div> // yes search div
+        ) // yes search closing
+        }
+        </div> // return div
+    ) // return
 }
 
 export default SearchBar

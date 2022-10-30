@@ -16,6 +16,7 @@ const App = () => {
     const [posts, setPosts] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [token, setToken] = useState(window.localStorage.getItem("token"||""));
+    const [search, setSearch] = useState("")
     // const history = useNavigate();
 
     // this useEffect calls for all our API posts
@@ -31,7 +32,7 @@ const App = () => {
     // this is our logout button
     const LogOut = ({setToken}) => {
       return (
-        <button onClick={() => {setToken("")} } className='logout'>Log out</button> 
+        <button onClick={() => {setToken("")} }><a>Log out</a></button> 
       )
     }
 
@@ -57,13 +58,13 @@ const App = () => {
         ? <LogOut setToken={setToken} />
         :      
         <>
-          <Link to="account/sign-up">Sign Up / Log in</Link>
+          <button><Link to="account/sign-up">Sign Up / Log in</Link></button>
         </> }
       </div>
 
       </nav>
       <div className='search-bar-container'>
-        <SearchBar posts={posts} />
+        <SearchBar posts={posts} search={search} setSearch={setSearch}/>
       </div>
       <Routes>
 
@@ -80,7 +81,7 @@ const App = () => {
         <Route path="/posts/edit/:editSwitch" element={<EditPost token={token} setPosts={setPosts} posts={posts}/>} />
         {/* when we go to the above Route Path, this is the element we want to load, with it's minutae */}
 
-        <Route path="/posts/details/:detailsSwitch" element={<DetailsPage token={token} setPosts={setPosts} posts={posts} />} />
+        <Route path="/posts/details/:detailsSwitch" element={<DetailsPage token={token} setPosts={setPosts} posts={posts} search={search} setSearch={setSearch}/>} />
 
       </Routes>
 
