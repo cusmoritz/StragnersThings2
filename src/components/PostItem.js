@@ -60,7 +60,7 @@ const PostItem = ({eachPost, index, token}) => {
                                         alert(`"${userMessage}" sent to ${eachPost.author.username}`),
                                         setCreateMessageState(false)
                                         setUserMessage("")}}>
-                                        Send message
+                                        <a>Send message</a>
                                     </button>
                                 </label>
                             </form>
