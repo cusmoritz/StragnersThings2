@@ -55,9 +55,9 @@ export const sendMessageAPI = async (messagePostId, messageContent, token) => {
 
 }
 
-export const editPostApi = async (token, editPostId, editedPost) => {
+export const editPostApi = async (token, postId, title, location, description, price) => {
     try{
-        const result = fetch(`${BaseURL}posts/${editPostId}`, {
+        const result = fetch(`${BaseURL}posts/${postId}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json',
@@ -65,20 +65,18 @@ export const editPostApi = async (token, editPostId, editedPost) => {
             },
             body: JSON.stringify({
             post: {
-            title: `${editedPost.title}`,
-            description: `${editedPost.description}`,
-            price: `${editedPost.price}`,
-            location: `${editedPost.location}`,
-            willDeliver: `${editedPost.delivery}`
+            title: `${title}`,
+            description: `${description}`,
+            price: `${price}`,
+            location: `${location}`,
+            willDeliver: `false`
         }
       })
     }).then(response => response.json())
     return result
-    } catch {
-
+    } catch (error){
+        console.error(error)
     }
-    
-
 }
 
 export const getGuestData = async (token) => {

@@ -11,17 +11,14 @@ body {
 }
 
 nav {
-    width: 100vw;
+    width: 90vw;
     position: center;
     display: grid;
-    margin: 5px;
+    /* margin: 5px; */
 }
 
-nav button {
-    margin: 5px;
-}
 
-h1 {
+h1 a{
     font-size: 50px;
     /* font-display: center; */
 }
@@ -52,7 +49,7 @@ button {
     position: absolute;
     box-shadow: 3px 3px 3px #00000088;
     background-color: #888888;
-    width: 100vw;
+    width: 90vw;
 }
 
 .search-bar input {
@@ -86,4 +83,22 @@ button {
 .post-title {
     font-weight: bolder;
     font-size: 20px;
+}
+
+.details-page-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-container {
+    border: 1px solid white;
+    padding: 2%;
+    border-radius: 15px;
+    box-shadow: 3px 3px #00000088;
+    display: grid;
+    align-content: center;
+}
+
+.not-logged-in-container {
+    justify-content: center;
 }

@@ -47,8 +47,8 @@ const PostItem = ({eachPost, index, token}) => {
                             <button onClick={() => {setCreateMessageState(true), console.log(eachPost)} }>
                                 <a>Send message</a>
                             </button>
-                        ) : (
-                            <form onSubmit={(event) => {event.preventDefault()}}>
+                        ) : ( eachPost.isAuthor !== true ? (
+                                <form onSubmit={(event) => {event.preventDefault()}}>
                                 <label htmlFor="user-message">
                                     <input  
                                         className="user-message" 
@@ -63,8 +63,10 @@ const PostItem = ({eachPost, index, token}) => {
                                         <a>Send message</a>
                                     </button>
                                 </label>
-                            </form>
-                        )) : null }
+                                </form>
+                        ) : null )
+                            
+                    ) : null }
         </div>
     )
 }

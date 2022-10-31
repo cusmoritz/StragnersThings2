@@ -73,7 +73,7 @@ const NewPostForm = ({token, setPosts}) => {
             })}
             />
 
-            <button type="submit">Create new post</button>
+            <button type="submit"><a>Create new post</a></button>
         </form>
     )
 }

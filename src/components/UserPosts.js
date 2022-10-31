@@ -33,11 +33,11 @@ const UserPosts = ({eachPost, token, setPostArray, postArray}) => {
     }
 
     return (
-        <div key={eachPost._id}>
-            <h4 className="user-post-title">{eachPost.title}</h4>
-            <p className="user-post-location">{eachPost.location}</p>
-            <p className="user-post-price">{eachPost.price}</p>
-            <p className="user-post-description">{eachPost.description}</p>
+        <div className="user-container" key={eachPost._id}>
+            <h4 className="user-post-title">Title: {eachPost.title}</h4>
+            <p className="user-post-location">Location: {eachPost.location}</p>
+            <p className="user-post-price">Price: {eachPost.price}</p>
+            <p className="user-post-description">Description: {eachPost.description}</p>
 
             <button 
                 className="user-delete-button" 
@@ -45,7 +45,7 @@ const UserPosts = ({eachPost, token, setPostArray, postArray}) => {
                 handleDelete(token, eachPost._id)
                     }
                 } >
-                    Delete post
+                    <a>Delete post</a>
             </button>
 
             {/* <button className="user-delete-button">Edit post</button>

@@ -46,7 +46,7 @@ const App = () => {
   <div>
     <BrowserRouter>
     
-    <h1>Stranger's Things</h1>
+    <h1><Link to="/">Stranger's Things</Link></h1>
       <nav>
         {token ? <button><Link to="/">Home</Link></button> : null}
       

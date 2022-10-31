@@ -14,10 +14,10 @@ const DetailsPage = ({token, setPosts, posts, search, setSearch}) => {
 
     return (
         <div className="details-page-container">
-            <h3 className="details-header">{detailsPost.title}</h3>
-            <h6 className="details-location">{detailsPost.location}</h6>
-            <p className="details-description">{detailsPost.description}</p>
-            <p className="details-price">{detailsPost.price}</p>
+            <h3 className="details-header"><span>Title: </span>{detailsPost.title}</h3>
+            <h6 className="details-location"><span>Location: </span>{detailsPost.location}</h6>
+            <p className="details-description"><span>Description: </span>{detailsPost.description}</p>
+            <p className="details-price"><span>Price: </span>{detailsPost.price}</p>
             {/* <p className="details-delivery">Delivery: {detailsPost.willDeliver}</p> */}
 
 
@@ -27,7 +27,7 @@ const DetailsPage = ({token, setPosts, posts, search, setSearch}) => {
                     console.log('this post has a message')
                     return (
                         <>
-                        <h5>Message:</h5>
+                        <h5 className="message-container">Message:</h5>
                         <p><span className="message-content">Message: </span>{eachMessage.content}</p> 
                         <p><span className="message-user">From user: </span>{eachMessage.fromUser.username}</p> 
                         </>
@@ -39,9 +39,6 @@ const DetailsPage = ({token, setPosts, posts, search, setSearch}) => {
                 // )}
             )
             }
-
-
-
         </div>
     )
 }

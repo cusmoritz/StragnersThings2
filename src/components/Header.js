@@ -35,12 +35,14 @@ const Home = ({posts, token}) => {
       }, []);
 
     if (!postArray[0]) {
-        // return(
-        //     <>
-        //         <h3>You haven't made any posts yet!</h3>
-        //         <button><Link to="/posts/new" element={<NewPostForm token={token} setPosts={setPosts}/>} /> Make a new post</button>
-        //     </>
-        // )
+        return(
+            <>
+                <h3>You haven't made any posts yet!</h3>
+                <button>
+                    <Link to="/posts/new" > Make a new post </Link>
+                </button>
+            </>
+        )
     } else {
         return (
             <>
