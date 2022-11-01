@@ -26,11 +26,11 @@ const DetailsPage = ({token, setPosts, posts, search, setSearch}) => {
                 detailsPost.messages.map((eachMessage) => {
                     console.log('this post has a message')
                     return (
-                        <>
-                        <h5 className="message-container">Message:</h5>
+                        <div className="message-container">
+                        <h5 className="">Message:</h5>
                         <p><span className="message-content">Message: </span>{eachMessage.content}</p> 
                         <p><span className="message-user">From user: </span>{eachMessage.fromUser.username}</p> 
-                        </>
+                        </div>
                     )
                 })
             : (

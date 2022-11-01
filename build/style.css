@@ -102,8 +102,3 @@ button {
 .not-logged-in-container {
     justify-content: center;
 }
-
-.message-container {
-    border: 2px dashed black;
-    padding: 5px;
-}

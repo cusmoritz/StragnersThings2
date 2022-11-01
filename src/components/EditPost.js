@@ -38,66 +38,66 @@ console.log('token in edit', token)
             //might need to filter setPosts with postId and update it...?
     // useHistory to push them back to the users/me page
 
-    return (
-<>
-        <h2>EDITING FUNCTION UNDER CONSTRUCTION, COME BACK SOON</h2>
-        <img src="https://media.tenor.com/eAQ9ONalEiAAAAAC/waze-construction.gif" />
-</>
+//     return (
+// <>
+//         <h2>EDITING FUNCTION UNDER CONSTRUCTION, COME BACK SOON</h2>
+//         <img src="https://media.tenor.com/eAQ9ONalEiAAAAAC/waze-construction.gif" />
+// </>
         
-        // <form className="details-page-container">
+        <form className="details-page-container">
 
-        //     <h2 className="details-header"> Make changes to your post below, then hit submit to log your changes.</h2>
-        //     {/* <p className="details-delivery">Delivery: {editingPost.willDeliver}</p> */}
+            <h2 className="details-header"> Make changes to your post below, then hit submit to log your changes.</h2>
+            {/* <p className="details-delivery">Delivery: {editingPost.willDeliver}</p> */}
             
-        //     <label htmlFor="new-title"> New title: 
-        //         <textarea value={title}
-        //                     onChange={(event) => {
-        //                         setTitle(event.target.value)
-        //                     }} > </textarea>
-        //     </label>
+            <label htmlFor="new-title"> New title: 
+                <textarea value={title}
+                            onChange={(event) => {
+                                setTitle(event.target.value)
+                            }} > </textarea>
+            </label>
 
-        //     <br></br>
+            <br></br>
 
-        //     <label htmlFor="new-location"> New location: 
-        //         <textarea value={location} 
-        //         onChange={(event) => {
-        //         setLocation(event.target.value)
-        //     }}>  </textarea>
-        //     </label>
+            <label htmlFor="new-location"> New location: 
+                <textarea value={location} 
+                onChange={(event) => {
+                setLocation(event.target.value)
+            }}>  </textarea>
+            </label>
 
-        //     <br></br>
+            <br></br>
 
-        //     <label htmlFor="new-description" onChange={(event) => {
-        //         setDescription(event.target.value)
-        //     }}> New description: 
-        //         <textarea value={description} onChange={(event) => {
-        //         setDescription(event.target.value)
-        //     }}> </textarea>
-        //     </label>
+            <label htmlFor="new-description" onChange={(event) => {
+                setDescription(event.target.value)
+            }}> New description: 
+                <textarea value={description} onChange={(event) => {
+                setDescription(event.target.value)
+            }}> </textarea>
+            </label>
 
-        //     <br></br>
+            <br></br>
 
-        //     <label htmlFor="new-price" onChange={(event) => {
-        //         setPrice(event.target.value)
-        //     }}> New price: 
-        //         <textarea value={price}></textarea>
-        //     </label>          
+            <label htmlFor="new-price" onChange={(event) => {
+                setPrice(event.target.value)
+            }}> New price: 
+                <textarea value={price}></textarea>
+            </label>          
             
-        //     <br></br>
+            <br></br>
 
-        //     <button onClick={handleEdit}><a>Submit changes</a></button>
-        //     {/* {!editingPost.messages ? 
-        //     <p>No messages for this post.</p>
-        //     : editingPost.messages.map((eachMessage) => {
-        //         console.log('this post has a message')
-        //         return (
-        //             <>
-        //             <p><span className="message-user">From user: </span>{eachMessage.fromUser}</p> 
-        //             <p><span className="message-content">Message: </span>{eachMessage.content}</p> 
-        //             </>
-        //         )
-        //     })} */}
-        // </form>
+            <button onClick={handleEdit}><a>Submit changes</a></button>
+            {/* {!editingPost.messages ? 
+            <p>No messages for this post.</p>
+            : editingPost.messages.map((eachMessage) => {
+                console.log('this post has a message')
+                return (
+                    <>
+                    <p><span className="message-user">From user: </span>{eachMessage.fromUser}</p> 
+                    <p><span className="message-content">Message: </span>{eachMessage.content}</p> 
+                    </>
+                )
+            })} */}
+        </form>
     )
 }
 
