@@ -56,6 +56,7 @@ export const sendMessageAPI = async (messagePostId, messageContent, token) => {
 }
 
 export const editPostApi = async (token, postId, title, location, description, price) => {
+  console.log('are we even getting here', title)
     try{
         const result = fetch(`${BaseURL}posts/${postId}`, {
             method: "PATCH",
