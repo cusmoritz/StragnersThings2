@@ -50,21 +50,27 @@ const SearchBar = ({posts, search, setSearch}) => {
                 {posts.map((eachPost) => {
                     if(eachPost.title.toLowerCase().includes(search)) {
                         return (
+                            <div className="search-result">
                                 <p><b>Matches title in:</b>
                                 <Link to={`/posts/details/${eachPost._id}`}>{eachPost.title}</Link>
                                 </p>
+                            </div>
                         )
         
                     } if (eachPost.location.toLowerCase().includes(search)) {
-                        console.log('location matches', eachPost.location)
+                        // console.log('location matches', eachPost.location)
                         return (
-                            <p className="search-result"><b>Matches location in: </b>
-                            <Link to={`/posts/details/${eachPost._id}`}>{eachPost.location}</Link></p>
+                            <div className="search-result">
+                                <p><b>Matches location in: </b> 
+                                <Link to={`/posts/details/${eachPost._id}`}>{eachPost.location}</Link></p>
+                            </div>
                         )
                     } if (eachPost.description.toLowerCase().includes(search)) {
-                        console.log('description matches', eachPost.description)
+                        // console.log('description matches', eachPost.description)
                         return (
-                            <p className="search-result"> <b>Matches description in: </b> <Link to={`/posts/details/${eachPost._id}`}>{eachPost.description}</Link> </p>
+                            <div className="search-result">
+                                <p> <b>Matches description in:</b>  <Link to={`/posts/details/${eachPost._id}`}>{eachPost.description}</Link> </p>
+                            </div>
                         )
 
                     }

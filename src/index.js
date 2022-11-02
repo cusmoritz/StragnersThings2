@@ -43,11 +43,11 @@ const App = () => {
     }, [token]);
     
   return (
-  <div>
+  <div className='grid-container-full'>
     <BrowserRouter>
     
     <h1><Link to="/">Stranger's Things</Link></h1>
-      <nav>
+      <nav className='grid-container-thirds'>
         {token ? <button><Link to="/">Home</Link></button> : null}
       
       <button><Link to="/posts">See all posts</Link> </button>

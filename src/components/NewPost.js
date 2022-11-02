@@ -64,7 +64,7 @@ const NewPostForm = ({token, setPosts}) => {
             }))}
             />
 
-            <label htmlFor="new-post-delivery">Will you deliver?</label>
+            <label htmlFor="new-post-delivery">Click if you will deliver:</label>
             <input type="radio" 
             required 
             value={delivery}
@@ -72,7 +72,7 @@ const NewPostForm = ({token, setPosts}) => {
                 setDelivery(true)
             })}
             />
-
+            <hr></hr>
             <button type="submit"><a>Create new post</a></button>
         </form>
     )
