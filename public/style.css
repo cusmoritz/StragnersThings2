@@ -13,7 +13,6 @@
 
 .search-container {
     background-color: lightgrey;
-
 }
 
 .search-bar {
@@ -248,7 +247,6 @@ ol,
 form {
   margin-bottom: 2.5rem; }
 
-
 /* Utilities
 â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ */
 .u-full-width {
@@ -266,7 +264,6 @@ form {
 .u-align-right {
 	text-align: right; }
 
-
 /* Misc
 â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ */
 hr {
@@ -274,7 +271,6 @@ hr {
   margin-bottom: 3.5rem;
   border-width: 0;
   border-top: 1px solid var(--border-color-softer); }
-
 
 /* Larger than mobile (default point when grid becomes active) */
 @media (min-width: 600px) {}
